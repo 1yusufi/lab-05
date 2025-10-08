@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements CityDialogFragmen
         city.setProvince(year);
         cityArrayAdapter.notifyDataSetChanged();
 
+        DocumentReference documentReference = citiesRef.document(city.getName());
+        documentReference.delete();
+        documentReference.set(city);
+
         // Updating the database using delete + addition
     }
 
